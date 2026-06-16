@@ -1,0 +1,258 @@
+/* ===========================================================================
+   ELETTRONICAL — foglio di stile unico
+   Palette derivata dal logo: azzurro/ciano del wordmark, grigio della tagline,
+   navy dei banner del carosello.
+   =========================================================================== */
+
+:root {
+  --brand:        #0b9fd6;   /* azzurro ELETTRONICAL */
+  --brand-dark:   #077aa8;
+  --brand-darker: #055d80;
+  --navy:         #0a1d2e;   /* sfondo scuro hero/footer */
+  --navy-soft:    #102b42;
+  --ink:          #2b343c;   /* testo principale */
+  --muted:        #66727d;   /* testo secondario */
+  --line:         #e4ebf1;   /* bordi */
+  --bg:           #ffffff;
+  --bg-soft:      #f4f8fb;   /* sezioni alternate */
+  --radius:       14px;
+  --shadow:       0 6px 24px rgba(10, 29, 46, .08);
+  --shadow-hover: 0 12px 34px rgba(10, 29, 46, .14);
+  --maxw:         1140px;
+  --font: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+}
+
+* { box-sizing: border-box; }
+
+html { scroll-behavior: smooth; }
+
+body {
+  margin: 0;
+  font-family: var(--font);
+  color: var(--ink);
+  background: var(--bg);
+  line-height: 1.6;
+  -webkit-font-smoothing: antialiased;
+}
+
+img { max-width: 100%; display: block; }
+
+a { color: var(--brand-dark); text-decoration: none; }
+a:hover { text-decoration: underline; }
+
+h1, h2, h3 { line-height: 1.2; color: var(--navy); margin: 0 0 .5em; }
+h2.section-title { font-size: clamp(1.5rem, 3vw, 2.1rem); text-align: center; }
+.section-intro { text-align: center; color: var(--muted); max-width: 680px; margin: 0 auto 2.5rem; }
+
+.container { width: 100%; max-width: var(--maxw); margin: 0 auto; padding: 0 20px; }
+
+section { padding: clamp(3rem, 6vw, 5rem) 0; }
+.bg-soft { background: var(--bg-soft); }
+
+/* ---- Bottoni -------------------------------------------------------------- */
+.btn {
+  display: inline-block;
+  background: var(--brand);
+  color: #fff;
+  padding: .8rem 1.6rem;
+  border-radius: 999px;
+  font-weight: 600;
+  border: none;
+  cursor: pointer;
+  transition: background .2s ease, transform .2s ease, box-shadow .2s ease;
+}
+.btn:hover { background: var(--brand-dark); text-decoration: none; transform: translateY(-2px); box-shadow: var(--shadow); }
+.btn-outline { background: transparent; color: var(--brand-dark); border: 2px solid var(--brand); }
+.btn-outline:hover { background: var(--brand); color: #fff; }
+.center { text-align: center; }
+
+/* ---- Header --------------------------------------------------------------- */
+.site-header {
+  position: sticky; top: 0; z-index: 50;
+  background: rgba(255, 255, 255, .92);
+  backdrop-filter: saturate(180%) blur(8px);
+  border-bottom: 1px solid var(--line);
+}
+.site-header .container {
+  display: flex; align-items: center; justify-content: space-between;
+  min-height: 72px; gap: 1rem;
+}
+.site-header .logo img { height: 38px; width: auto; }
+.main-nav { display: flex; gap: 1.6rem; align-items: center; }
+.main-nav a {
+  color: var(--ink); font-weight: 600; font-size: .98rem;
+  padding: .3rem 0; position: relative;
+}
+.main-nav a:hover { color: var(--brand-dark); text-decoration: none; }
+.main-nav a.active { color: var(--brand-dark); }
+.main-nav a.active::after {
+  content: ""; position: absolute; left: 0; right: 0; bottom: -4px;
+  height: 3px; background: var(--brand); border-radius: 3px;
+}
+
+/* ---- Carosello ------------------------------------------------------------ */
+.carousel {
+  position: relative;
+  width: 100%;
+  max-width: 1600px;
+  margin: 0 auto;
+  aspect-ratio: 1600 / 600;
+  overflow: hidden;
+  background: var(--navy);
+}
+.carousel__track { position: absolute; inset: 0; }
+.carousel__slide {
+  position: absolute; inset: 0;
+  opacity: 0; transition: opacity .8s ease;
+  background-size: cover; background-position: center;
+}
+.carousel__slide.is-active { opacity: 1; }
+.carousel__btn {
+  position: absolute; top: 50%; transform: translateY(-50%);
+  width: 44px; height: 44px; border-radius: 50%;
+  border: none; cursor: pointer;
+  background: rgba(10, 29, 46, .45); color: #fff;
+  font-size: 1.5rem; line-height: 44px; text-align: center;
+  transition: background .2s ease;
+  z-index: 3;
+}
+.carousel__btn:hover { background: var(--brand); }
+.carousel__btn--prev { left: 16px; }
+.carousel__btn--next { right: 16px; }
+.carousel__dots {
+  position: absolute; left: 0; right: 0; bottom: 16px;
+  display: flex; justify-content: center; gap: 10px; z-index: 3;
+}
+.carousel__dot {
+  width: 11px; height: 11px; border-radius: 50%;
+  border: 2px solid #fff; background: transparent; cursor: pointer; padding: 0;
+  transition: background .2s ease, transform .2s ease;
+}
+.carousel__dot.is-active { background: #fff; transform: scale(1.15); }
+
+/* ---- Intro + obiettivi ---------------------------------------------------- */
+.intro-lead {
+  font-size: clamp(1.05rem, 2vw, 1.2rem);
+  color: var(--ink); max-width: 820px; margin: 0 auto 2.8rem; text-align: center;
+}
+.intro-lead strong { color: var(--navy); }
+
+.objectives {
+  display: grid; gap: 1.5rem;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+}
+.objective {
+  background: var(--bg); border: 1px solid var(--line); border-radius: var(--radius);
+  padding: 2rem 1.6rem; text-align: center; box-shadow: var(--shadow);
+  transition: transform .2s ease, box-shadow .2s ease;
+}
+.objective:hover { transform: translateY(-4px); box-shadow: var(--shadow-hover); }
+.objective__icon {
+  width: 56px; height: 56px; margin: 0 auto 1.1rem;
+  display: grid; place-items: center;
+  background: linear-gradient(135deg, var(--brand), var(--brand-dark));
+  border-radius: 14px; color: #fff;
+}
+.objective__icon svg { width: 30px; height: 30px; }
+.objective h3 { font-size: 1.18rem; }
+.objective p { color: var(--muted); margin: 0; }
+
+/* ---- Afferenti ------------------------------------------------------------ */
+.members-grid {
+  display: grid; gap: 1.6rem;
+  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+}
+.member-card {
+  background: var(--bg); border: 1px solid var(--line); border-radius: var(--radius);
+  padding: 1.8rem; display: flex; flex-direction: column;
+  box-shadow: var(--shadow); transition: transform .2s ease, box-shadow .2s ease;
+}
+.member-card:hover { transform: translateY(-4px); box-shadow: var(--shadow-hover); }
+.member-card__logo {
+  height: 88px; display: grid; place-items: center; margin-bottom: 1.2rem;
+}
+.member-card__logo img { max-height: 80px; max-width: 90%; width: auto; object-fit: contain; }
+.member-card h3 { font-size: 1.15rem; margin-bottom: .35rem; }
+.member-card p { color: var(--muted); margin: 0 0 1.1rem; flex: 1; }
+.member-card a.member-link {
+  font-weight: 600; align-self: flex-start;
+  display: inline-flex; align-items: center; gap: .35rem;
+}
+.member-card a.member-link::after { content: "↗"; font-size: .9em; }
+
+/* ---- News ----------------------------------------------------------------- */
+.news-grid {
+  display: grid; gap: 1.6rem;
+  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+}
+.news-card {
+  background: var(--bg); border: 1px solid var(--line); border-radius: var(--radius);
+  padding: 1.8rem; box-shadow: var(--shadow);
+  display: flex; flex-direction: column;
+  transition: transform .2s ease, box-shadow .2s ease;
+}
+.news-card:hover { transform: translateY(-4px); box-shadow: var(--shadow-hover); }
+.news-card__date, .news-date {
+  color: var(--brand-dark); font-weight: 600; font-size: .85rem;
+  text-transform: uppercase; letter-spacing: .04em; margin-bottom: .5rem;
+}
+.news-card h3 { font-size: 1.2rem; }
+.news-card p { color: var(--muted); flex: 1; }
+.news-card a.read-more { font-weight: 600; align-self: flex-start; margin-top: .6rem; }
+
+/* news.html — articoli completi */
+.news-list { max-width: 800px; margin: 0 auto; display: grid; gap: 2.5rem; }
+.news-article {
+  border-bottom: 1px solid var(--line); padding-bottom: 2.5rem;
+  scroll-margin-top: 90px;
+}
+.news-article:last-child { border-bottom: none; }
+.news-article h2 { font-size: clamp(1.35rem, 2.5vw, 1.8rem); margin-bottom: .4rem; }
+.news-article .news-body p { margin: 0 0 1rem; color: var(--ink); }
+
+/* ---- CTA banner ----------------------------------------------------------- */
+.cta {
+  background: linear-gradient(135deg, var(--navy), var(--navy-soft));
+  color: #fff; text-align: center;
+}
+.cta h2 { color: #fff; }
+.cta p { color: #cdd9e3; max-width: 620px; margin: 0 auto 1.8rem; }
+.cta .btn { background: var(--brand); }
+.cta .btn:hover { background: #fff; color: var(--brand-dark); }
+
+/* ---- Footer --------------------------------------------------------------- */
+.site-footer { background: var(--navy); color: #c3d1dc; padding: 3.5rem 0 2rem; }
+.site-footer a { color: #fff; }
+.footer-grid {
+  display: grid; gap: 2rem; grid-template-columns: 1.4fr 1fr 1fr;
+  margin-bottom: 2.5rem;
+}
+.site-footer img.footer-logo { height: 42px; margin-bottom: 1rem; }
+.site-footer h4 { color: #fff; font-size: 1rem; margin: 0 0 .8rem; }
+.site-footer ul { list-style: none; padding: 0; margin: 0; }
+.site-footer li { margin-bottom: .5rem; }
+.site-footer p { margin: 0 0 .6rem; color: #9fb2c0; font-size: .95rem; }
+.footer-bottom {
+  border-top: 1px solid rgba(255, 255, 255, .12); padding-top: 1.5rem;
+  text-align: center; font-size: .85rem; color: #8a9eae;
+}
+
+/* ---- Page hero (afferenti / news) ---------------------------------------- */
+.page-hero {
+  background: linear-gradient(135deg, var(--navy), var(--navy-soft));
+  color: #fff; padding: clamp(2.5rem, 6vw, 4rem) 0; text-align: center;
+}
+.page-hero h1 { color: #fff; font-size: clamp(1.8rem, 4vw, 2.6rem); }
+.page-hero p { color: #cdd9e3; max-width: 640px; margin: .5rem auto 0; }
+
+/* ---- Stato / vuoto -------------------------------------------------------- */
+.loading, .empty { text-align: center; color: var(--muted); padding: 2rem 0; }
+
+/* ---- Responsive ----------------------------------------------------------- */
+@media (max-width: 760px) {
+  .footer-grid { grid-template-columns: 1fr; gap: 1.6rem; }
+  .site-header .logo img { height: 32px; }
+  .main-nav { gap: 1.1rem; }
+  .main-nav a { font-size: .92rem; }
+  .carousel__btn { width: 38px; height: 38px; line-height: 38px; font-size: 1.25rem; }
+}

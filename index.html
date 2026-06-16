@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>ELETTRONICAL — La rete delle aziende calabresi di Ingegneria Elettronica</title>
+  <meta name="description" content="ELETTRONICAL è la rete strategica che unisce le eccellenze dell'ingegneria elettronica e dell'hardware in Calabria: massa critica, talenti e dialogo con le Istituzioni.">
+  <link rel="icon" type="image/png" href="assets/favicon.png">
+  <link rel="stylesheet" href="style.css">
+  <meta property="og:title" content="ELETTRONICAL — La rete dell'elettronica calabrese">
+  <meta property="og:description" content="La rete delle eccellenze dell'ingegneria elettronica e dell'hardware in Calabria.">
+  <meta property="og:image" content="assets/og-banner.png">
+  <meta property="og:type" content="website">
+</head>
+<body>
+
+  <!-- Header -->
+  <header class="site-header">
+    <div class="container">
+      <a class="logo" href="index.html" aria-label="ELETTRONICAL — home">
+        <img src="assets/elettronical-logo.png" alt="ELETTRONICAL">
+      </a>
+      <nav class="main-nav">
+        <a href="index.html" class="active">Home</a>
+        <a href="afferenti.html">Afferenti</a>
+        <a href="news.html">News</a>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+
+    <!-- Carosello -->
+    <div class="carousel" aria-label="Immagini ELETTRONICAL" aria-roledescription="carosello">
+      <div class="carousel__track">
+        <div class="carousel__slide is-active" style="background-image:url('assets/carousel/slide-1.webp')" role="img" aria-label="ELETTRONICAL — slide 1"></div>
+        <div class="carousel__slide" style="background-image:url('assets/carousel/slide-2.webp')" role="img" aria-label="ELETTRONICAL — slide 2"></div>
+        <div class="carousel__slide" style="background-image:url('assets/carousel/slide-3.webp')" role="img" aria-label="ELETTRONICAL — slide 3"></div>
+        <div class="carousel__slide" style="background-image:url('assets/carousel/slide-4.webp')" role="img" aria-label="ELETTRONICAL — slide 4"></div>
+        <div class="carousel__slide" style="background-image:url('assets/carousel/slide-5.webp')" role="img" aria-label="ELETTRONICAL — slide 5"></div>
+      </div>
+      <button class="carousel__btn carousel__btn--prev" aria-label="Slide precedente">&#8249;</button>
+      <button class="carousel__btn carousel__btn--next" aria-label="Slide successiva">&#8250;</button>
+      <div class="carousel__dots" role="tablist" aria-label="Indicatori slide"></div>
+    </div>
+
+    <!-- Introduzione + obiettivi -->
+    <section>
+      <div class="container">
+        <h2 class="section-title">Una rete, non una lista di contatti</h2>
+        <p class="intro-lead">
+          <strong>ELETTRONICAL</strong> è la rete strategica che unisce le eccellenze
+          dell'ingegneria elettronica e dell'hardware in Calabria. Non un semplice elenco
+          di aziende, ma un'<strong>alleanza operativa</strong> che mette a sistema il
+          know-how locale per affrontare insieme sfide più grandi.
+        </p>
+
+        <div class="objectives">
+          <div class="objective">
+            <div class="objective__icon" aria-hidden="true">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="9" cy="7" r="3"/><circle cx="17" cy="9" r="2.5"/><path d="M3 20c0-3.3 2.7-6 6-6s6 2.7 6 6"/><path d="M15.5 14.5c2.5.3 4.5 2.4 4.5 5"/></svg>
+            </div>
+            <h3>Fare massa critica</h3>
+            <p>Aggregare competenze complementari per dare vita a sinergie e progetti più ambiziosi.</p>
+          </div>
+          <div class="objective">
+            <div class="objective__icon" aria-hidden="true">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3l2.3 4.7 5.2.8-3.8 3.7.9 5.1L12 15.9 7.4 17l.9-5.1L4.5 8.5l5.2-.8z"/></svg>
+            </div>
+            <h3>Attrarre talenti</h3>
+            <p>Rendere la Calabria un polo attrattivo per ingegneri e specialisti del settore.</p>
+          </div>
+          <div class="objective">
+            <div class="objective__icon" aria-hidden="true">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 21h18"/><path d="M5 21V10l7-5 7 5v11"/><path d="M9 21v-6h6v6"/></svg>
+            </div>
+            <h3>Dialogare con le Istituzioni</h3>
+            <p>Una voce unitaria per incidere sulle politiche di sviluppo regionale.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- News in evidenza -->
+    <section class="bg-soft">
+      <div class="container">
+        <h2 class="section-title">News</h2>
+        <p class="section-intro">Le ultime novità dalla rete ELETTRONICAL.</p>
+        <div id="home-news" class="news-grid">
+          <p class="loading">Caricamento delle notizie…</p>
+        </div>
+        <div class="center" style="margin-top:2.5rem">
+          <a class="btn btn-outline" href="news.html">Tutte le news</a>
+        </div>
+      </div>
+    </section>
+
+    <!-- CTA adesione -->
+    <section class="cta">
+      <div class="container">
+        <h2>Fai parte della rete</h2>
+        <p>Sei un'azienda calabrese che opera nell'elettronica o nell'hardware?
+           Unisciti a ELETTRONICAL e contribuisci a costruire il polo dell'innovazione regionale.</p>
+        <a class="btn" href="https://tinyurl.com/elettronical" target="_blank" rel="noopener">Aderisci alla rete</a>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- Footer -->
+  <footer class="site-footer">
+    <div class="container">
+      <div class="footer-grid">
+        <div>
+          <img class="footer-logo" src="assets/elettronical-logo-light.png" alt="ELETTRONICAL">
+          <p>La rete delle eccellenze dell'ingegneria elettronica e dell'hardware in Calabria.</p>
+          <p>Promotore: <strong>Luigi Boccia</strong></p>
+        </div>
+        <div>
+          <h4>Ricerca &amp; Università</h4>
+          <p>Università della Calabria</p>
+          <p>Università Mediterranea di Reggio Calabria</p>
+        </div>
+        <div>
+          <h4>Collegamenti</h4>
+          <ul>
+            <li><a href="afferenti.html">Afferenti</a></li>
+            <li><a href="news.html">News</a></li>
+            <li><a href="https://tinyurl.com/elettronical" target="_blank" rel="noopener">Modulo di adesione</a></li>
+          </ul>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        © 2026 ELETTRONICAL · <a href="https://elettronical.it">elettronical.it</a>
+      </div>
+    </div>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>

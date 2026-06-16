@@ -1,0 +1,38 @@
+[
+  {
+    "nome": "Antecnica",
+    "sito": "https://www.antecnica.it",
+    "logo": "assets/logos/antecnica.svg",
+    "descrizione": "Studio e progettazione di apparati a radiofrequenza."
+  },
+  {
+    "nome": "Sebyone",
+    "sito": "https://www.sebyone.it",
+    "logo": "assets/logos/sebyone.png",
+    "descrizione": "Soluzioni IoT/DaaS, intelligenza artificiale, cybersecurity e sistemi embedded."
+  },
+  {
+    "nome": "High Technology Systems (HTS)",
+    "sito": "https://www.htsitaly.it",
+    "logo": "assets/logos/hts.png",
+    "descrizione": "Assemblaggio di schede elettroniche."
+  },
+  {
+    "nome": "Mindway",
+    "sito": "https://www.mindway-design.com",
+    "logo": "assets/logos/mindway.png",
+    "descrizione": "Progettazione elettronica."
+  },
+  {
+    "nome": "Truesense",
+    "sito": "https://www.truesense.it",
+    "logo": "assets/logos/truesense.png",
+    "descrizione": "Piattaforme UWB (ranging & radar), Edge AI e soluzioni IoT."
+  },
+  {
+    "nome": "BioAge",
+    "sito": "https://www.bioage-srl.com",
+    "logo": "assets/logos/bioage.png",
+    "descrizione": "Progettazione elettronica."
+  }
+]
