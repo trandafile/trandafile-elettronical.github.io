@@ -3,29 +3,16 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <script>try{if(sessionStorage.getItem('ec_intro'))document.documentElement.className+=' intro-skip';}catch(e){}</script>
-  <noscript><style>#intro{display:none!important}</style></noscript>
   <title>ELETTRONICAL — La rete delle aziende calabresi di Ingegneria Elettronica</title>
   <meta name="description" content="ELETTRONICAL è la rete strategica che unisce le eccellenze dell'ingegneria elettronica e dell'hardware in Calabria: massa critica, talenti e dialogo con le Istituzioni.">
   <link rel="icon" type="image/png" href="assets/favicon.png">
-  <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="style.css?v=3">
   <meta property="og:title" content="ELETTRONICAL — La rete dell'elettronica calabrese">
   <meta property="og:description" content="La rete delle eccellenze dell'ingegneria elettronica e dell'hardware in Calabria.">
   <meta property="og:image" content="assets/og-banner.png">
   <meta property="og:type" content="website">
 </head>
 <body>
-
-  <!-- Intro animata (solo home, una volta per sessione) -->
-  <div id="intro" role="dialog" aria-label="Introduzione ELETTRONICAL">
-    <button class="intro__skip" type="button" aria-label="Salta l'introduzione">Salta intro &times;</button>
-    <div class="intro__stage">
-      <svg class="intro__icon" viewBox="0 0 281.05499 527.40285" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"></svg>
-      <div class="intro__name">ELETTRONICAL</div>
-      <div class="intro__sub">Rete delle aziende calabresi di Ingegneria Elettronica</div>
-      <div class="intro__taglines"></div>
-    </div>
-  </div>
 
   <!-- Header -->
   <header class="site-header">
@@ -43,19 +30,17 @@
 
   <main>
 
-    <!-- Carosello -->
-    <div class="carousel" aria-label="Immagini ELETTRONICAL" aria-roledescription="carosello">
-      <div class="carousel__track">
-        <div class="carousel__slide is-active" style="background-image:url('assets/carousel/slide-1.webp')" role="img" aria-label="ELETTRONICAL — slide 1"></div>
-        <div class="carousel__slide" style="background-image:url('assets/carousel/slide-2.webp')" role="img" aria-label="ELETTRONICAL — slide 2"></div>
-        <div class="carousel__slide" style="background-image:url('assets/carousel/slide-3.webp')" role="img" aria-label="ELETTRONICAL — slide 3"></div>
-        <div class="carousel__slide" style="background-image:url('assets/carousel/slide-4.webp')" role="img" aria-label="ELETTRONICAL — slide 4"></div>
-        <div class="carousel__slide" style="background-image:url('assets/carousel/slide-5.webp')" role="img" aria-label="ELETTRONICAL — slide 5"></div>
+    <!-- Hero animato (il circuito si disegna nella Calabria, poi scorrono i banner) -->
+    <section class="hero" aria-label="ELETTRONICAL — la rete dell'elettronica calabrese">
+      <div class="hero__bg" aria-hidden="true"></div>
+      <div class="hero__inner">
+        <svg class="hero__icon" viewBox="0 0 281.05499 527.40285" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"></svg>
+        <div class="hero__text">
+          <div class="hero__name" aria-label="ELETTRONICAL">ELETTRONICAL</div>
+          <div class="hero__tagline" id="hero-tagline" aria-live="polite">La rete delle aziende calabresi in Ingegneria Elettronica</div>
+        </div>
       </div>
-      <button class="carousel__btn carousel__btn--prev" aria-label="Slide precedente">&#8249;</button>
-      <button class="carousel__btn carousel__btn--next" aria-label="Slide successiva">&#8250;</button>
-      <div class="carousel__dots" role="tablist" aria-label="Indicatori slide"></div>
-    </div>
+    </section>
 
     <!-- Introduzione + obiettivi -->
     <section>
@@ -148,8 +133,8 @@
     </div>
   </footer>
 
-  <script src="script.js"></script>
-  <script src="assets/ec-icon.js"></script>
-  <script src="intro.js"></script>
+  <script src="script.js?v=3"></script>
+  <script src="assets/ec-icon.js?v=3"></script>
+  <script src="hero.js?v=3"></script>
 </body>
 </html>
