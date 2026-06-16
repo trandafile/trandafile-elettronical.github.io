@@ -54,17 +54,28 @@
     }
   }
 
-  // Icona: inietta il tracciato autentico e prepara il "disegno".
-  var trace = intro.querySelector(".intro__trace");
+  // Icona: inietta i 3 strati (regione, circuito, nodi) e prepara il "disegno".
   var svg = intro.querySelector(".intro__icon");
-  if (trace && window.EC_ICON_PATH) {
-    trace.setAttribute("d", window.EC_ICON_PATH);
-    if (svg && window.EC_ICON_VIEWBOX) svg.setAttribute("viewBox", window.EC_ICON_VIEWBOX);
+  if (svg && window.EC_ICON_SVG) {
+    if (window.EC_ICON_VIEWBOX) svg.setAttribute("viewBox", window.EC_ICON_VIEWBOX);
+    svg.innerHTML = window.EC_ICON_SVG;
   }
-  var len = 1200;
-  try { len = Math.ceil(trace.getTotalLength()) || 1200; } catch (e) {}
-  trace.style.strokeDasharray = len;
-  trace.style.strokeDashoffset = len;
+  var region = svg ? svg.querySelector(".ec-region") : null;
+  var inners = svg ? Array.prototype.slice.call(svg.querySelectorAll(".ec-inner")) : [];
+  var nodes  = svg ? Array.prototype.slice.call(svg.querySelectorAll(".ec-node")) : [];
+  var strokes = (region ? [region] : []).concat(inners);
+
+  function prep(el, dur) {
+    var len = 1000;
+    try { len = Math.ceil(el.getTotalLength()) || 1000; } catch (e) {}
+    el.style.strokeDasharray = len;
+    el.style.strokeDashoffset = len;
+    el.style.transition = "stroke-dashoffset " + dur + "ms ease";
+  }
+  if (region) prep(region, 1700);
+  inners.forEach(function (el) { prep(el, 1300); });
+  nodes.forEach(function (el, i) { el.style.animationDelay = (i * 0.14) + "s"; });
+  function draw(el) { if (el) el.style.strokeDashoffset = 0; }
 
   var taglines = [
     "La rete delle aziende calabresi in Ingegneria Elettronica",
@@ -80,9 +91,8 @@
 
   var reduce = window.matchMedia && window.matchMedia("(prefers-reduced-motion: reduce)").matches;
   if (reduce) {
-    trace.style.transition = "none";
-    trace.style.strokeDashoffset = 0;
-    intro.classList.add("icon-fill", "name-in", "sub-in");
+    strokes.forEach(function (el) { el.style.transition = "none"; el.style.strokeDashoffset = 0; });
+    intro.classList.add("nodes-in", "name-in", "sub-in");
     tgEl.textContent = taglines[0];
     tgEl.classList.add("is-show");
     setTimeout(dismiss, 2400);
@@ -90,10 +100,11 @@
   }
 
   // Timeline.
-  setTimeout(function () { trace.style.strokeDashoffset = 0; }, 150);   // disegna il circuito
-  setTimeout(function () { intro.classList.add("icon-fill"); }, 2200);  // riempi + bagliore
-  setTimeout(function () { intro.classList.add("name-in"); }, 2550);    // ELETTRONICAL
-  setTimeout(function () { intro.classList.add("sub-in"); }, 3250);     // sottotitolo
+  setTimeout(function () { draw(region); }, 150);                        // disegna la Calabria
+  setTimeout(function () { inners.forEach(draw); }, 850);                // disegna il circuito
+  setTimeout(function () { intro.classList.add("nodes-in"); }, 2500);    // nodi + bagliore
+  setTimeout(function () { intro.classList.add("name-in"); }, 2800);     // ELETTRONICAL
+  setTimeout(function () { intro.classList.add("sub-in"); }, 3500);      // sottotitolo
 
   var idx = 0, step = 1850;
   function showTag() {
@@ -107,5 +118,5 @@
       else setTimeout(dismiss, step);     // dopo l'ultimo banner, rivela il sito
     }, 220);
   }
-  setTimeout(showTag, 3900);
+  setTimeout(showTag, 4200);
 })();
