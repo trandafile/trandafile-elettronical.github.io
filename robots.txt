@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://elettronical.it/sitemap.xml
