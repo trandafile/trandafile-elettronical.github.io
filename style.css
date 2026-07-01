@@ -330,3 +330,27 @@ section { padding: clamp(3rem, 6vw, 5rem) 0; }
   .hero__tagline { transition: none; }
   .hero.is-nodes .hero__icon { animation: none; }
 }
+
+/* ===========================================================================
+   Banner consenso cookie
+   =========================================================================== */
+.cookie-banner {
+  position: fixed; left: 16px; right: 16px; bottom: 16px; z-index: 1200;
+  max-width: 760px; margin: 0 auto;
+  background: var(--navy); color: #dbe7f0;
+  border: 1px solid rgba(255, 255, 255, .14); border-radius: 14px;
+  box-shadow: 0 12px 40px rgba(0, 0, 0, .38);
+  padding: 1rem 1.2rem;
+  display: flex; align-items: center; gap: 1rem; flex-wrap: wrap;
+  font-size: .9rem; line-height: 1.45;
+}
+.cookie-banner__text { flex: 1; min-width: 240px; }
+.cookie-banner__text a { color: #7fd0ef; }
+.cookie-banner__actions { display: flex; gap: .6rem; flex-shrink: 0; }
+.cookie-banner .btn { padding: .55rem 1.2rem; font-size: .85rem; }
+.cookie-banner .btn-outline { color: #cfe6f2; border-color: rgba(255, 255, 255, .4); }
+.cookie-banner .btn-outline:hover { background: rgba(255, 255, 255, .16); color: #fff; }
+@media (max-width: 520px) {
+  .cookie-banner { flex-direction: column; align-items: stretch; }
+  .cookie-banner__actions { justify-content: flex-end; }
+}
